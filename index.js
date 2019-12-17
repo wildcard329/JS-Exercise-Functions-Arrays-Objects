@@ -41,9 +41,9 @@ function addNumbers(num1, num2) {
 */
 function makePersonObject(id, name, email) {
   let personObject = {
-    id: 1,
-    name: "Luke",
-    email: "luke@luke.com"
+    id: id,
+    name: name,
+    email: email
   }
   return personObject;
 }
@@ -182,11 +182,13 @@ function getLastCarInfo(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(inventory, id) {
-  for (let i = 0; i < inventory.length; i++) {
-    if (inventory[i] + 1 === id) {
-      return `This is a ${inventory[i].make} ${inventory[i].model}`
+  index = id - 1
+  for (var i = 0; i < index; i++) {
+    if (inventory[i] === index) {
+    return inventory[i];
     }
   }
+  return `This is a ${inventory[i].car_make} ${inventory[i].car_model}`
 }
 
 /**
@@ -198,7 +200,7 @@ function getCarInfoById(inventory, id) {
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
 function sortCarInventory(inventory) {
-  return inventory.sort((a, b) => a.car_model - b.car_model)
+  inventory.sort(function(a, b) {return a - b});
 }
 
 
